@@ -211,7 +211,7 @@
 			return nil;
 		}
 		
-		if( enclosureURLString )
+		if( enclosureURLString && ![enclosureURLString isEqualToString:@""])	// BOINX: we use empty enclosue:url to indicate paid updates
 			[self setFileURL: [NSURL URLWithString: [enclosureURLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 		if( enclosure )
 			[self setDSASignature:[enclosure objectForKey:@"sparkle:dsaSignature"]];		
