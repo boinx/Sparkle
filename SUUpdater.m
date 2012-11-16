@@ -547,4 +547,24 @@ static NSString * const SUUpdaterDefaultsObservationContext = @"SUUpdaterDefault
 - delegate { return delegate; }
 - (NSBundle *)hostBundle { return [host bundle]; }
 
+
+// BOINX give filtered profile data back to UI to display to user (in our prefs pane)
+- (NSArray *)profileData
+{
+    NSArray *parameters = [NSArray array];
+    BOOL sendingSystemProfile = [self sendsSystemProfile];
+	
+    if ([delegate respondsToSelector:@selector(feedParametersForUpdater:sendingSystemProfile:)])
+    {
+        parameters = [parameters arrayByAddingObjectsFromArray:[delegate feedParametersForUpdater:self sendingSystemProfile:sendingSystemProfile]];
+    }
+    if (sendingSystemProfile)
+    {
+        parameters = [parameters arrayByAddingObjectsFromArray:[host systemProfile]];
+        [host setObject:[NSDate date] forUserDefaultsKey:SULastProfileSubmitDateKey];
+    }
+	
+    return parameters;
+}
+
 @end
