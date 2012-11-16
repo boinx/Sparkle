@@ -14,6 +14,10 @@
 #import "SUAppcastItem.h"
 #import "SULog.h"
 
+
+NSString * const SUReleaseNotesMaxVersion = @"MAXVERSION";
+
+
 @implementation SUAppcastItem
 
 // Attack of accessors!
@@ -211,7 +215,7 @@
 			return nil;
 		}
 		
-		if( enclosureURLString )
+		if( enclosureURLString && ![enclosureURLString isEqualToString:@""])	// BOINX: we use empty enclosue:url to indicate paid updates
 			[self setFileURL: [NSURL URLWithString: [enclosureURLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 		if( enclosure )
 			[self setDSASignature:[enclosure objectForKey:@"sparkle:dsaSignature"]];		
@@ -231,8 +235,20 @@
 		
 		// Find the appropriate release notes URL.
 		if ([dict objectForKey:@"sparkle:releaseNotesLink"])
-			[self setReleaseNotesURL:[NSURL URLWithString:[dict objectForKey:@"sparkle:releaseNotesLink"]]];
-		else if ([[self itemDescription] hasPrefix:@"http://"]) // if the description starts with http://, use that.
+		{
+			NSString *releaseNotesURLString = [dict objectForKey:@"sparkle:releaseNotesLink"];
+			
+			// BOINX: Parse release notes URL string for MAXVERSION and replace with displayVersionString to get
+			NSRange placeholderRange = [releaseNotesURLString rangeOfString:SUReleaseNotesMaxVersion];
+			
+			if (placeholderRange.location != NSNotFound)
+			{
+				releaseNotesURLString = [releaseNotesURLString stringByReplacingOccurrencesOfString:SUReleaseNotesMaxVersion withString:[self displayVersionString] options:NSWidthInsensitiveSearch range:placeholderRange];    // NSLiteralSearch
+			}
+			
+			[self setReleaseNotesURL:[NSURL URLWithString:releaseNotesURLString]];
+		}
+		else if ([[self itemDescription] hasPrefix:@"http://"] || [[self itemDescription] hasPrefix:@"https://"]) // if the description starts with http:// or https:// use that.
 			[self setReleaseNotesURL:[NSURL URLWithString:[self itemDescription]]];
 		else
 			[self setReleaseNotesURL:nil];

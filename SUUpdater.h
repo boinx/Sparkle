@@ -75,6 +75,10 @@
 
 + (BOOL)shouldUseXPC;
 
+// BOINX give filtered profile data back to UI to display to user (in our prefs pane)
+- (NSArray *)profileData;
+
+
 @end
 
 
