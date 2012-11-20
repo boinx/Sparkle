@@ -218,15 +218,15 @@
 
 - (BOOL)validateUpdateDownloadedToPath:(NSString *)destinationPath extractedToPath:(NSString *)extractedPath DSASignature:(NSString *)DSASignature publicDSAKey:(NSString *)publicDSAKey
 {
-
+    NSString *newBundlePath = [SUInstaller appPathInUpdateFolder:extractedPath forHost:host];
     if (!newBundlePath) return NO;
     
-
+    NSError *error = nil;
     if ([SUCodeSigningVerifier codeSignatureIsValidAtPath:newBundlePath error:&error]) {
         return YES;
     } else {
-
-
+        SULog(@"Code signature check on update failed: %@", error);
+    }
     
     return [SUDSAVerifier validatePath:destinationPath withEncodedDSASignature:DSASignature withPublicDSAKey:publicDSAKey];
 }
