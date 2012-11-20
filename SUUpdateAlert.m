@@ -119,11 +119,11 @@
 		else
 		{
             NSURLRequest *request = [NSURLRequest requestWithURL:[updateItem releaseNotesURL] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
-            if ([SUUpdater shouldUseXPC]) {
-                releaseNotesDownloader = (NSURLDownload *)[[SUXPCURLDownload alloc] initWithRequest:request delegate:self];
-            } else {
+//            if ([SUUpdater shouldUseXPC]) {
+//                releaseNotesDownloader = (NSURLDownload *)[[SUXPCURLDownload alloc] initWithRequest:request delegate:self];
+//            } else {
                 [[releaseNotesView mainFrame] loadRequest:request];
-            }
+//            }
 		}
 	}
 	else

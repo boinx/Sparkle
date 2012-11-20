@@ -159,20 +159,20 @@
 {
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[updateItem fileURL]];
 	[request setValue:[updater userAgentString] forHTTPHeaderField:@"User-Agent"];
-    if ([SUUpdater shouldUseXPC])
-        download = (NSURLDownload *)[[SUXPCURLDownload alloc] initWithRequest:request delegate:self];
-    else
+//    if ([SUUpdater shouldUseXPC])
+//        download = (NSURLDownload *)[[SUXPCURLDownload alloc] initWithRequest:request delegate:self];
+//    else
         download = [[NSURLDownload alloc] initWithRequest:request delegate:self];
 }
 
 - (void)download:(NSURLDownload *)d decideDestinationWithSuggestedFilename:(NSString *)name
 {
-    if ([SUUpdater shouldUseXPC]) {
-        // The downloader will determine a file name, somewhere within our sandbox.
-        downloadPath = nil;
-        [d setDestination:name allowOverwrite:YES];
-        return;
-    }
+//    if ([SUUpdater shouldUseXPC]) {
+//        // The downloader will determine a file name, somewhere within our sandbox.
+//        downloadPath = nil;
+//        [d setDestination:name allowOverwrite:YES];
+//        return;
+//    }
     
 	// If name ends in .txt, the server probably has a stupid MIME configuration. We'll give the developer the benefit of the doubt and chop that off.
 	if ([[name pathExtension] isEqualToString:@"txt"])
