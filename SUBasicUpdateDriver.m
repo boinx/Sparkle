@@ -160,20 +160,20 @@
 {
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[updateItem fileURL]];
 	[request setValue:[updater userAgentString] forHTTPHeaderField:@"User-Agent"];
-//    if ([SUUpdater shouldUseXPC])
-//        download = (NSURLDownload *)[[SUXPCURLDownload alloc] initWithRequest:request delegate:self];
-//    else
+    if ([SUUpdater shouldUseDownloaderXPC])
+        download = (NSURLDownload *)[[SUXPCURLDownload alloc] initWithRequest:request delegate:self];
+    else
         download = [[NSURLDownload alloc] initWithRequest:request delegate:self];
 }
 
 - (void)download:(NSURLDownload *)d decideDestinationWithSuggestedFilename:(NSString *)name
 {
-//    if ([SUUpdater shouldUseXPC]) {
-//        // The downloader will determine a file name, somewhere within our sandbox.
-//        downloadPath = nil;
-//        [d setDestination:name allowOverwrite:YES];
-//        return;
-//    }
+    if ([SUUpdater shouldUseDownloaderXPC]) {
+        // The downloader will determine a file name, somewhere within our sandbox.
+        downloadPath = nil;
+        [d setDestination:name allowOverwrite:YES];
+        return;
+    }
     
 	// If name ends in .txt, the server probably has a stupid MIME configuration. We'll give the developer the benefit of the doubt and chop that off.
 	if ([[name pathExtension] isEqualToString:@"txt"])
@@ -337,7 +337,7 @@
 #endif
 
 	// Only the paranoid survive: if there's already a stray copy of relaunch there, we would have problems.
-	if( [SUUpdater shouldUseXPC] )
+	if( [SUUpdater shouldUseInstallerXPC] )
     {
         [SUXPC copyPathWithAuthentication:relaunchPathToCopy overPath:targetPath temporaryName:nil completionHandler:^(NSError *xpcError) {
             if (xpcError != nil)
@@ -378,7 +378,7 @@
         pathToRelaunch = [[updater delegate] pathToRelaunchForUpdater:updater];
     NSString *relaunchToolPath = [relaunchPath stringByAppendingPathComponent: @"/Contents/MacOS/finish_installation"];
 	NSArray *arguments = [NSArray arrayWithObjects:[host bundlePath], pathToRelaunch, [NSString stringWithFormat:@"%d", [[NSProcessInfo processInfo] processIdentifier]], tempDir, relaunch ? @"1" : @"0", nil];
-	if( [SUUpdater shouldUseXPC] )
+	if( [SUUpdater shouldUseInstallerXPC] )
 		[SUXPC launchTaskWithLaunchPath: relaunchToolPath arguments:arguments completionHandler:^{
             [NSApp terminate:self];
         }];

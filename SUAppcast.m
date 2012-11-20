@@ -65,11 +65,11 @@
     if (userAgentString)
         [request setValue:userAgentString forHTTPHeaderField:@"User-Agent"];
             
-//    if ([SUUpdater shouldUseXPC]) {
-//        download = (NSURLDownload *)[[SUXPCURLDownload alloc] initWithRequest:request delegate:self];
-//    } else {
+    if ([SUUpdater shouldUseDownloaderXPC]) {
+        download = (NSURLDownload *)[[SUXPCURLDownload alloc] initWithRequest:request delegate:self];
+    } else {
         download = [[NSURLDownload alloc] initWithRequest:request delegate:self];
-//    }
+    }
 }
 
 - (void)download:(NSURLDownload *)aDownload decideDestinationWithSuggestedFilename:(NSString *)filename
