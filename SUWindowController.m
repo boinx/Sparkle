@@ -29,8 +29,8 @@
 	 Will try to load the nib by it's name.
 	 */
 	
-	self = [super initWithWindowNibName:nibName owner:self];
-	return nil;
+	self = [super initWithWindowNibName:nibName];
+	return self;
 }
 
 @end
