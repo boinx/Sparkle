@@ -255,7 +255,8 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 		// This needs to be done after the application is moved to its
 		// new home with "mv" in case it's moved across filesystems: if
 		// that happens, "mv" actually performs a copy and may result
-		// in the application being quarantined.  		if (res)
+		// in the application being quarantined.
+        if (res)
 		{
 			SULog(@"releaseFromQuarantine after installing");
 			[self performSelectorOnMainThread:@selector(releaseFromQuarantine:) withObject:dst waitUntilDone:YES];
