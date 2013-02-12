@@ -30,7 +30,8 @@ extern OSStatus SecStaticCodeCheckValidityWithErrors(SecStaticCodeRef staticCode
     SecRequirementRef requirement = NULL;
     SecStaticCodeRef staticCode = NULL;
     SecCodeRef hostCode = NULL;
-    
+	
+#ifndef DEBUG
     result = SecCodeCopySelf(kSecCSDefaultFlags, &hostCode);
     if (result != 0) {
         SULog(@"Failed to copy host code %d", result);
@@ -42,6 +43,7 @@ extern OSStatus SecStaticCodeCheckValidityWithErrors(SecStaticCodeRef staticCode
         SULog(@"Failed to copy designated requirement %d", result);
         goto finally;
     }
+#endif
     
     NSBundle *newBundle = [NSBundle bundleWithPath:destinationPath];
     if (!newBundle) {
