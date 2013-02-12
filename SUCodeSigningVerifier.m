@@ -32,6 +32,12 @@ extern OSStatus SecStaticCodeCheckValidityWithErrors(SecStaticCodeRef staticCode
     SecCodeRef hostCode = NULL;
 	
 #ifndef DEBUG
+	// this extracts the designated requirements from the current running app
+	// because it's most likely that the zertificate wil differ in debug builds and Xcode
+	// Developer ID signed apps have a different set of designated requirements than
+	// development-certificate signed apps. checking for this requirements wil fail.
+	// so in debug builds we ignore them ond only check codesign validity of the downloaded version
+	
     result = SecCodeCopySelf(kSecCSDefaultFlags, &hostCode);
     if (result != 0) {
         SULog(@"Failed to copy host code %d", result);
