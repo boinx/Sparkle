@@ -154,7 +154,21 @@
         // Find the appropriate release notes URL.
         NSString *releaseNotesString = dict[SUAppcastElementReleaseNotesLink];
         if (releaseNotesString) {
+#if 0
             self.releaseNotesURL = [NSURL URLWithString:releaseNotesString];
+
+#else
+            // BOINX: Parsing releaseNotesURL for MAXVERSION placeholder to set current update version in some cases. Refs #117
+            NSString * const SUReleaseNotesMaxVersion = @"MAXVERSION";
+            NSRange placeholderRange = [releaseNotesString rangeOfString:SUReleaseNotesMaxVersion];
+            
+            if (placeholderRange.location != NSNotFound)
+            {
+                releaseNotesString = [releaseNotesString stringByReplacingOccurrencesOfString:SUReleaseNotesMaxVersion withString:[self displayVersionString] options:NSWidthInsensitiveSearch range:placeholderRange];    // NSLiteralSearch
+            }
+            
+            [self setReleaseNotesURL:[NSURL URLWithString:releaseNotesString]];
+#endif
         } else if ([self.itemDescription hasPrefix:@"http://"] || [self.itemDescription hasPrefix:@"https://"]) { // if the description starts with http:// or https:// use that.
             self.releaseNotesURL = [NSURL URLWithString:self.itemDescription];
         } else {
