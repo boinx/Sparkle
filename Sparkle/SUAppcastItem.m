@@ -128,7 +128,8 @@
             return nil;
         }
 
-        if (enclosureURLString) {
+        // BOINX we are using an empty enclosureURLString to indicate a paid upgrade
+        if (enclosureURLString && ![enclosureURLString isEqualToString:@""]) {
             NSString *fileURLString = [[enclosureURLString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             self.fileURL = [NSURL URLWithString:fileURLString];
         }
