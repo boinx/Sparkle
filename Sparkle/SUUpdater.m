@@ -566,4 +566,9 @@ static NSString *const SUUpdaterDefaultsObservationContext = @"SUUpdaterDefaults
 
 - (NSBundle *)hostBundle { return [self.host bundle]; }
 
+- (NSArray *)profileData
+{
+    return self.host.systemProfile;
+}
+
 @end
