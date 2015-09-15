@@ -1265,8 +1265,8 @@
 				8DC2EF540486A6940098B216 /* Sources */,
 				8DC2EF560486A6940098B216 /* Frameworks */,
 				6131B1910DDCDE32005215F0 /* Run Script: Set Git Version Info */,
-				6195D4B40E40505A00D41A50 /* Run Script: Link fr_CA to fr */,
-				61E31A85103299750051D188 /* Run Script: Link pt to pt_BR */,
+				986186651BA8208300A1AE39 /* Run Script: Copy pl to pl_BR (Boinx replacement) */,
+				986186661BA8211500A1AE39 /* Run Script: Copy fr to fr_CA (Boinx replacement) */,
 			);
 			buildRules = (
 			);
@@ -1471,39 +1471,33 @@
 			shellScript = "\"$SRCROOT/Configurations/set-git-version-info.sh\"";
 			showEnvVarsInLog = 0;
 		};
-		6195D4B40E40505A00D41A50 /* Run Script: Link fr_CA to fr */ = {
+		986186651BA8208300A1AE39 /* Run Script: Copy pl to pl_BR (Boinx replacement) */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/fr.lproj",
 			);
-			name = "Run Script: Link fr_CA to fr";
+			name = "Run Script: Copy pl to pl_BR (Boinx replacement)";
 			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/fr_CA.lproj",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = "/usr/bin/env sh";
-			shellScript = "ln -sfh \"fr.lproj\" \"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/fr_CA.lproj\"";
-			showEnvVarsInLog = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp -rf \"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/pl.lproj/\" \"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/pl_BR.lproj/\"";
 		};
-		61E31A85103299750051D188 /* Run Script: Link pt to pt_BR */ = {
+		986186661BA8211500A1AE39 /* Run Script: Copy fr to fr_CA (Boinx replacement) */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/pt_BR.lproj",
 			);
-			name = "Run Script: Link pt to pt_BR";
+			name = "Run Script: Copy fr to fr_CA (Boinx replacement)";
 			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/pt.lproj",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = "/usr/bin/env sh";
-			shellScript = "ln -sfh \"pt_BR.lproj\" \"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/pt.lproj\"";
-			showEnvVarsInLog = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp -rf \"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/fr.lproj/\" \"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/fr_CA.lproj/\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
