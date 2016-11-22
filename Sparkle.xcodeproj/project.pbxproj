@@ -1289,11 +1289,34 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Sparkle Project";
 				TargetAttributes = {
+					1420DF491962329200203BB0 = {
+						DevelopmentTeam = 6372P8EH2J;
+					};
+					14732BC51960F69300593899 = {
+						DevelopmentTeam = 6372P8EH2J;
+					};
+					1495005F195FB89400BC5B5B = {
+						DevelopmentTeam = 6372P8EH2J;
+					};
 					377E56481A8BB5E9003F5516 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 6372P8EH2J;
+					};
+					55C14BB6136EEF1500649790 = {
+						DevelopmentTeam = 6372P8EH2J;
+					};
+					5D06E8CF0FD68C7C005AE3F6 = {
+						DevelopmentTeam = 6372P8EH2J;
 					};
 					612279D80DB5470200AB99EA = {
+						DevelopmentTeam = 6372P8EH2J;
 						TestTargetID = 8DC2EF4F0486A6940098B216;
+					};
+					61B5F90109C4CEE200B25A18 = {
+						DevelopmentTeam = 6372P8EH2J;
+					};
+					8DC2EF4F0486A6940098B216 = {
+						DevelopmentTeam = 6372P8EH2J;
 					};
 				};
 			};
@@ -1887,7 +1910,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941CA0D94A70100DD942E /* ConfigFrameworkDebug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 			};
 			name = Debug;
 		};
@@ -1895,7 +1917,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941D50D94A70100DD942E /* ConfigFrameworkRelease.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 			};
 			name = Release;
 		};
@@ -1903,7 +1924,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941CF0D94A70100DD942E /* ConfigCommonDebug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
 			};
 			name = Debug;
 		};
@@ -1911,7 +1931,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941CC0D94A70100DD942E /* ConfigCommonRelease.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
 			};
 			name = Release;
 		};
@@ -1919,7 +1938,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 377E56431A8BB595003F5516 /* ConfigSandboxServiceDebug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 			};
 			name = Debug;
 		};
@@ -1927,7 +1945,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 377E56441A8BB595003F5516 /* ConfigSandboxServiceRelease.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 			};
 			name = Release;
 		};
@@ -1935,7 +1952,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941D30D94A70100DD942E /* ConfigRelaunchDebug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 			};
 			name = Debug;
 		};
@@ -1943,7 +1959,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941D40D94A70100DD942E /* ConfigRelaunchRelease.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 			};
 			name = Release;
 		};

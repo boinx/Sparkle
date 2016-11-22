@@ -84,3 +84,31 @@ WARNING_CFLAGS_EXTRA = -Wno-custom-atomic-properties -Wno-implicit-atomic-proper
 
 // Turn on all warnings, then disable a few which are almost impossible to avoid
 WARNING_CFLAGS = -Wall -Weverything -Wno-unused-macros -Wno-gnu-statement-expression -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-auto-import $(WARNING_CFLAGS_EXTRA)
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// Use "Mac App Store" code signing identity for both Debug and Release configurations
+
+CODE_SIGN_IDENTITY_Debug = Mac Developer
+CODE_SIGN_IDENTITY_Release = Mac Developer
+CODE_SIGN_IDENTITY = $(CODE_SIGN_IDENTITY_$(CONFIGURATION))
+
+// Xcode 7 doesn't require the development team to be set. The setting "None" in the popup menu is just fine
+// to build this project. Xcode 8 however requires the development team to be set or code signing won't work.
+// It also introduces the new variable "DEVELOPMENT_TEAM", which is not used by Xcode 7. So we'll define
+// it here with an empty string ("None"), so that Xcode 8 fails to build out of the box. This is intentional.
+
+DEVELOPMENT_TEAM = // "None"
+
+// The following line includes the file DevelopmentTeam.xcconfig, which is located several levels higher, in the
+// host application repository. This file overrides the value of DEVELOPMENT_TEAM with the Boinx Software team id.
+
+#include "../../../../DevelopmentTeam.xcconfig"
+
+// Select automatic provisioning profile.
+
+PROVISIONING_PROFILE = // "automatic" for Xcode 7
+PROVISIONING_PROFILE_SPECIFIER = // "automatic" for Xcode 8
