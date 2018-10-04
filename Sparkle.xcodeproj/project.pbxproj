@@ -1924,6 +1924,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941CF0D94A70100DD942E /* ConfigCommonDebug.xcconfig */;
 			buildSettings = {
+				DEFINES_MODULE = YES;
 			};
 			name = Debug;
 		};
@@ -1931,6 +1932,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941CC0D94A70100DD942E /* ConfigCommonRelease.xcconfig */;
 			buildSettings = {
+				DEFINES_MODULE = YES;
 			};
 			name = Release;
 		};
