@@ -103,10 +103,9 @@ CODE_SIGN_IDENTITY = $(CODE_SIGN_IDENTITY_$(CONFIGURATION))
 
 DEVELOPMENT_TEAM = // "None"
 
-// The following line includes the file DevelopmentTeam.xcconfig, which is located several levels higher, in the
-// host application repository. This file overrides the value of DEVELOPMENT_TEAM with the Boinx Software team id.
+// The following line overrides the value of DEVELOPMENT_TEAM with the Boinx Software team id.
 
-#include "../../../../DevelopmentTeam.xcconfig"
+DEVELOPMENT_TEAM = 6372P8EH2J
 
 // Select automatic provisioning profile.
 
