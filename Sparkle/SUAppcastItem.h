@@ -10,7 +10,7 @@
 #define SUAPPCASTITEM_H
 
 #import <Foundation/Foundation.h>
-#import "SUExport.h"
+#import <Sparkle/SUExport.h>
 
 SU_EXPORT @interface SUAppcastItem : NSObject
 @property (copy, readonly) NSString *title;

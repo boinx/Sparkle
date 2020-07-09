@@ -10,9 +10,9 @@
 #define SUUPDATER_H
 
 #import <Foundation/Foundation.h>
-#import "SUExport.h"
-#import "SUVersionComparisonProtocol.h"
-#import "SUVersionDisplayProtocol.h"
+#import <Sparkle/SUExport.h>
+#import <Sparkle/SUVersionComparisonProtocol.h>
+#import <Sparkle/SUVersionDisplayProtocol.h>
 
 @class SUUpdateDriver, SUAppcastItem, SUHost, SUAppcast;
 

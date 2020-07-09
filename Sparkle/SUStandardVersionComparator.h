@@ -10,8 +10,8 @@
 #define SUSTANDARDVERSIONCOMPARATOR_H
 
 #import <Foundation/Foundation.h>
-#import "SUExport.h"
-#import "SUVersionComparisonProtocol.h"
+#import <Sparkle/SUExport.h>
+#import <Sparkle/SUVersionComparisonProtocol.h>
 
 /*!
     Sparkle's default version comparator.

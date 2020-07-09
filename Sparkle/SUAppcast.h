@@ -10,7 +10,7 @@
 #define SUAPPCAST_H
 
 #import <Foundation/Foundation.h>
-#import "SUExport.h"
+#import <Sparkle/SUExport.h>
 
 @class SUAppcastItem;
 SU_EXPORT @interface SUAppcast : NSObject<NSURLDownloadDelegate>

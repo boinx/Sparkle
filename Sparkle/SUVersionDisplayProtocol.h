@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "SUExport.h"
+#import <Sparkle/SUExport.h>
 
 /*!
     Applies special display formatting to version numbers.
