@@ -289,6 +289,20 @@
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = Sparkle;
 		};
+		F6567D10252DE81500967C81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F6567D0B252DE81500967C81 /* BXDiagnostics.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F62391422524922700FB6B2F;
+			remoteInfo = BXDiagnostics;
+		};
+		F6567D12252DE81500967C81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F6567D0B252DE81500967C81 /* BXDiagnostics.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F6F6A06F25273815005BB307;
+			remoteInfo = BXDiagnosticsTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -585,6 +599,7 @@
 		767B61AB1972D488004E0C3C /* SUGuidedPackageInstaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGuidedPackageInstaller.m; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Sparkle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sparkle-Info.plist"; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* Sparkle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sparkle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6567D0B252DE81500967C81 /* BXDiagnostics.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BXDiagnostics.xcodeproj; path = ../BXDiagnostics/BXDiagnostics.xcodeproj; sourceTree = "<group>"; };
 		F65D5BFF24B5F71100DCAD7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SUAutomaticUpdateAlert.xib; sourceTree = "<group>"; };
 		F65D5C0024B5F71100DCAD7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SUUpdateAlert.xib; sourceTree = "<group>"; };
 		F65D5C0124B5F71100DCAD7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SUUpdatePermissionPrompt.xib; sourceTree = "<group>"; };
@@ -703,6 +718,7 @@
 		0867D691FE84028FC02AAC07 /* Sparkle */ = {
 			isa = PBXGroup;
 			children = (
+				F6567D0B252DE81500967C81 /* BXDiagnostics.xcodeproj */,
 				1495006D195FBBBD00BC5B5B /* Sparkle */,
 				14732BB81960EEB600593899 /* Resources */,
 				61227A100DB5484000AB99EA /* Tests */,
@@ -1042,6 +1058,15 @@
 			name = "Update Control";
 			sourceTree = "<group>";
 		};
+		F6567D0C252DE81500967C81 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F6567D11252DE81500967C81 /* BXDiagnostics.framework */,
+				F6567D13252DE81500967C81 /* BXDiagnosticsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		FA1941C40D94A6EA00DD942E /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
@@ -1366,6 +1391,12 @@
 			mainGroup = 0867D691FE84028FC02AAC07 /* Sparkle */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F6567D0C252DE81500967C81 /* Products */;
+					ProjectRef = F6567D0B252DE81500967C81 /* BXDiagnostics.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8DC2EF4F0486A6940098B216 /* Sparkle */,
@@ -1380,6 +1411,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F6567D11252DE81500967C81 /* BXDiagnostics.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BXDiagnostics.framework;
+			remoteRef = F6567D10252DE81500967C81 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F6567D13252DE81500967C81 /* BXDiagnosticsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BXDiagnosticsTests.xctest;
+			remoteRef = F6567D12252DE81500967C81 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		14958C6D19AEBC890061B14F /* Resources */ = {
